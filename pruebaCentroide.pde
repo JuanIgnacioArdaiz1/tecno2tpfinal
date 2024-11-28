@@ -21,10 +21,10 @@ Minim minim;
 AudioInput mic;
 FFT fft;
 
-float AMP_MIN = 0.05;
-float AMP_MAX = 0.30;
-float FREC_MIN = 20;
-float FREC_MAX = 550;
+float AMP_MIN = 0.5; //0.05
+float AMP_MAX = 0.7; //0.150
+float FREC_MIN = 20; //20
+float FREC_MAX = 550; //550
 
 GestorSenial gestorAmp;
 GestorSenial gestorPitch;
@@ -33,11 +33,11 @@ boolean monitorear = false;
 boolean haySonido;
 boolean antesHabiaSonido;
 
-float DIALOGO_UMBRAL = 0.05;
-float DIALOGO_DURACION = 3000;
+float DIALOGO_UMBRAL = 0.05; //0.05
+float DIALOGO_DURACION = 10000; //3000
 
-float APLAUSO_UMBRAL = 0.3;
-int APLAUSO_COOLDOWN = 300;
+float APLAUSO_UMBRAL = 0.15; //0.15
+int APLAUSO_COOLDOWN = 0; //300
 
 boolean hayDialogo = false;
 boolean hayAplauso = false;
@@ -50,7 +50,7 @@ AudioInput in;
 FCircle ondaExpansiva;
 int ancho = 640;
 int alto = 480;
-int umbral = 40;
+int umbral = 120; //40 en lo de Joaco
 float fillProgress = 0;
 boolean isFilledRed = false;
 int redOpacity = 20;
@@ -346,7 +346,7 @@ class TomateAnimado {
   void dibujar() {
     // Sincronizar posición del video con el círculo
     imageMode(CENTER);
-    image(frames[currentFrame], circulo.getX(), circulo.getY(), 80, 45);
+    image(frames[currentFrame], circulo.getX(), circulo.getY(), 96, 54);
 
     // Avanzar al siguiente frame
     currentFrame = (currentFrame + 1) % frames.length;
@@ -390,8 +390,9 @@ void stop() {
 }
 
 void keyPressed(){
-if(key=='R') {
-setup();
+if(key=='r') {
+ poly.setFill(0, 255, 0, 0);
+ redOpacity = 0;
 }
 
 
