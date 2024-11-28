@@ -21,8 +21,8 @@ Minim minim;
 AudioInput mic;
 FFT fft;
 
-float AMP_MIN = 0.5; //0.05
-float AMP_MAX = 0.7; //0.150
+float AMP_MIN = 0.05; //0.05
+float AMP_MAX = 0.150; //0.150
 float FREC_MIN = 20; //20
 float FREC_MAX = 550; //550
 
